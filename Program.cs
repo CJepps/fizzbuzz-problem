@@ -10,25 +10,54 @@ namespace fizzbuzz_problem
     {
         static void Main(string[] args)
         {
-            for (int i = 1; i < 301; i++) {   // for loop iterates from 1 - 100 //
-                if (i % 3 == 0 && i % 5 ==0)  // IF, after dividing i by 3, the remainder is 0 AND the remainder is 0 after dividing i by 5 PRINT "fizzbuzz" //
+            bool prime = true;
+            for (int i = 1; i <= 300; i++) // iterates through 1 - 300
+            {
+                for (int j = 2; j <= 300; j++)// divides a by every number between 2 and 300 
                 {
-                    Console.WriteLine(i + "-Fizzbuzz");
-                } 
-                else if (i % 3 == 0)
-                {
-                    Console.WriteLine(i + "-Fizz");
+                    if (i != j && i % j == 0) // if a is not the same as b and the remainder when you divide a/b is not zero, the number cannot be prime
+                    {
+                        prime = false;
+                        break;
+                    }
                 }
-                else if (i % 5 == 0)
+                if (!prime)
                 {
-                    Console.WriteLine(i + "-Buzz");
+                    if (i % 3 == 0 && i % 5 == 0)  // IF, after dividing i by 3, the remainder is 0 AND the remainder is 0 after dividing i by 5 PRINT "fizzbuzz" //
+                    {
+                        Console.WriteLine(i + "-Fizzbuzz /r/n");
+                    }
+                    else if (i % 3 == 0)
+                    {
+                        Console.WriteLine(i + "-Fizz /r/n");
+                    }
+                    else if (i % 5 == 0)
+                    {
+                        Console.WriteLine(i + "-Buzz /r/n");
+                    }
+                    else
+                    {
+                        Console.WriteLine(i);
+                    }
                 }
-                else
+                else if (prime)
                 {
-                    Console.WriteLine(i);
+                    Console.Write(i + "-Buzzfizz /r/n "); //prints prime number 
+
                 }
+                prime = true;
+                
+            
+
             }
+           
 
         }
     }
 }
+                
+               
+             
+        
+    
+
